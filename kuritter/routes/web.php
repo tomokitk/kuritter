@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/tweet','TweetController@tweet');
+  //Route::get('/tweet','TweetController@tweet');
+  //get post の違い？
+  //'/tweet','TweetController@tweet'　
+  //ツイート関連であれば、url と@以降をメソッド名に変える
+Route::post('/store','TweetController@store');

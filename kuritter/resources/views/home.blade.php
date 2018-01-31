@@ -14,10 +14,20 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    You are logged in!    
+
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
+@section('footer')
+<div class="tweet">
+    <a href="/tweet">tweet</a>
+</div>
+
+
+
+
