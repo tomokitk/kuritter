@@ -24,3 +24,5 @@ Route::get('/tweet','TweetController@tweet');
   //'/tweet','TweetController@tweet'　
   //ツイート関連であれば、url と@以降をメソッド名に変える
 Route::post('/store','TweetController@store');
+Route::get('/user','UserController@user');
+Route::get('/show','ShowController@show'); // new 20180202

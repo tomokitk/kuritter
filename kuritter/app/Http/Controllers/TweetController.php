@@ -15,10 +15,13 @@ class TweetController extends Controller
 
     public function store(Request $request){
         $tweet = new MikeTweet ();
-        $user=Auth::user();
+        $user=Auth::user(); // ログインしているidを取っている
         $tweet->user_id=$user->id;
         $tweet->message=$request->message;
         $tweet-> save();
-        return redirect('/');
+        return redirect('show');  ///show に飛ばす
     }
+
+
+    
 }

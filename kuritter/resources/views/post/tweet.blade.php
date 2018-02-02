@@ -14,10 +14,12 @@
     <span class="error">{{ $errors->first('message') }}</span>
     @endif
   </p>
+  
   <p>
     <input type="submit" value="Add">
   </p>
      </form>
+
 
 </body>
 </html>
