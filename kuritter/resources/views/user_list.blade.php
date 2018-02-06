@@ -6,7 +6,10 @@
 </head>
 <body>
 <h1>User_List</h1>
-<form method="get" action="{{ url('/user') }}">
+
+@foreach($users as $user)
+<p>{{$user->name}}</p>
+@endforeach
 </form>
 
 </body>

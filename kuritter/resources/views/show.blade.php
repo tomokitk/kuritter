@@ -7,7 +7,7 @@
   @foreach($mike_tweets as $mike_tweet)
   <form method="post" action="{{ url('/like')}}">
   {{ csrf_field() }}
-  <textarea name="message" placeholder="message"> {{ old('message', $mike_tweet->message) }}</textarea>
+  <P>{{ old('message', $mike_tweet->message) }}</p>
   
   
 　　<input type="submit" name="submit_value"    value="like">

@@ -10,11 +10,14 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
 
-    public function user(){  
+    public function user(Request $request){  
         $user=Auth::user();
-   
-     $users = User::where("id","!=",$user->id)->get();
-     echo $users;
-}
+        
+        $users = User::where("id","!=",$user->id)->get();
+        $users = User::all();
+        
+        return view('user_list')->with('users',$users);
+        
+    }
 
 }
