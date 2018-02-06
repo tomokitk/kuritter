@@ -10,18 +10,19 @@ use Illuminate\Support\Facades\Auth;
 class LikeController extends Controller
 { 
 
+
+
  public function like(Request $request){
     $like = new like();
     $user=Auth::user();
-    $like->message_id=$request->message;
-    $like = like::where("id","!=",$user->id);
+    $like->message_id=$request->message_id;
     $like->user_id=$user->id;
     $like->save();
-    return view('show');
+    $tweet=MikeTweet::all();
+    return view('show')->with('mike_tweets',$tweet);
  }
 
-
-
+ 
 }
 
 

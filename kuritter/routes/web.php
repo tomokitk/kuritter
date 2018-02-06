@@ -26,4 +26,4 @@ Route::get('/tweet','TweetController@tweet');
 Route::post('/store','TweetController@store');
 Route::get('/user','UserController@user');
 Route::post('/show','ShowController@show'); // new 20180202
-Route::get('/like','likeController@like');
+Route::post('/like','LikeController@like');

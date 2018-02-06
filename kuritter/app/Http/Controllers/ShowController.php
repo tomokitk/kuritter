@@ -14,8 +14,11 @@ class ShowController extends Controller
     $tweet->user_id=$user->id;
     $tweet->message=$request->message;
     $tweet-> save();
-    $shows=MikeTweet::all();
-    return view('show')->with('mike_tweets',$shows);
+    $tweet=MikeTweet::all();
+    return view('show')->with('mike_tweets',$tweet);
     }
     
 }
+
+
+///tweetcontroller のstore メソッドと一緒のもんを書けばいい。
