@@ -17,7 +17,7 @@ class LikeController extends Controller
     $like = like::where("id","!=",$user->id);
     $like->user_id=$user->id;
     $like->save();
-    return redirect('show');
+    return view('show');
  }
 
 
