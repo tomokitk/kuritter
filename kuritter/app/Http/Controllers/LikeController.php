@@ -6,30 +6,32 @@ use Illuminate\Http\Request;
 use App\MikeTweet;
 use App\Like;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class LikeController extends Controller
 { 
-
-
-
- public function like(Request $request){
-    $like = new like();
-    $user=Auth::user();
-    $like->message_id=$request->message_id;
-    $like->user_id=$user->id;
-    $like->save();
-    $tweet=MikeTweet::all();
-    return view('show')->with('mike_tweets',$tweet);
- }
-
- 
+    public function like(Request $request){
+        Log::info("likeメソッド　messageid:".$request->message_id);
+        if($request->submit_value=="like"){
+            $like = new like();
+            $user=Auth::user();
+            $like->message_id=$request->message_id;
+            $like->user_id=$user->id;
+            $like->save();
+        }else if($request->submit_value== "delete"){
+            $break = MikeTweet::findOrFail($request->message_id);
+            $break->delete();
+        }
+        $tweet=MikeTweet::all();
+        return view('show')->with('mike_tweets',$tweet);
+    }
 }
 
 
 ////新しいやつ
 
 
-
+///$break = MikeTweet::findOrFail($id);
  //$users = User::where("id","!=",$user->id)->get();
     
     
