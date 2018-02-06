@@ -13,6 +13,7 @@ class TweetController extends Controller
         return view('post.tweet');
     }
 
+
     public function store(Request $request){
         $tweet = new MikeTweet ();
         $user=Auth::user(); // ログインしているidを取っている
@@ -21,6 +22,9 @@ class TweetController extends Controller
         $tweet-> save();
         return redirect('show');  ///show に飛ばす
     }
+    
+
+
 
 
     

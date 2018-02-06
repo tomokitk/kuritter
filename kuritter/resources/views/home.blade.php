@@ -32,5 +32,8 @@
     <a href="/user">use_list</a>
 </div>
 
+<div class="like">
+    <a href="/like">like</a>
+</div>
 
 

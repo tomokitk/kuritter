@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>tweet</h1>
-    <form method="post" action="{{ url('/store') }}">
+    <form method="post" action="{{ url('/show') }}">
   {{ csrf_field() }}
   <p>
     <textarea name="message" placeholder="message">{{ old('message') }} </textarea>
@@ -23,3 +23,4 @@
 
 </body>
 </html>
+
