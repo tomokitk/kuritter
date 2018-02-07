@@ -6,14 +6,14 @@
 
   @foreach($mike_tweets as $mike_tweet)
   <form method="post" action="{{ url('/like')}}">
-  {{ csrf_field() }}
-  <P>{{ old('message', $mike_tweet->message) }}</p>
-  
-  
-　　<input type="submit" name="submit_value"    value="like">
-  <input type="submit" name="submit_value"    value="delete">
-  <input type="hidden" name="message_id" value="{{$mike_tweet->id}}">
-   
+    {{ csrf_field() }}
+    <P>{{ old('message', $mike_tweet->message) }}</p>
+    
+    
+  　<input type="submit" name="submit_value"    value="like">
+    <input type="submit" name="submit_value"    value="delete">
+    <input type="hidden" name="message_id" value="{{$mike_tweet->id}}">
+    
   </form>
   @endforeach
 

@@ -28,3 +28,4 @@ Route::get('/user','UserController@user');
 Route::post('/show','ShowController@show'); // new 20180202
 Route::post('/like','LikeController@like');
 Route::delete('/delete','DeleteController@delete');
+Route::post('/follow','FollowController@follow');

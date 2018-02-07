@@ -7,20 +7,18 @@
 <body>
 <h1>tweet</h1>
     <form method="post" action="{{ url('/show') }}">
-  {{ csrf_field() }}
-  <p>
-    <textarea name="message" placeholder="message">{{ old('message') }} </textarea>
-    @if ($errors->has('message'))
-    <span class="error">{{ $errors->first('message') }}</span>
-    @endif
-  </p>
-  
-  <p>
-    <input type="submit" value="Add">
-  </p>
+        {{ csrf_field() }}
+        <p>
+          <textarea name="message" placeholder="message">{{ old('message') }} </textarea>
+          @if ($errors->has('message'))
+          <span class="error">{{ $errors->first('message') }}</span>
+          @endif
+        </p>
+        
+        <p>
+          <input type="submit" value="Add">
+        </p>
      </form>
-
-
 </body>
 </html>
 

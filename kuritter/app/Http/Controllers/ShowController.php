@@ -7,11 +7,7 @@ use App\MikeTweet;
 use Illuminate\Support\Facades\Auth;
 
 class ShowController extends Controller
-{
-
-
-
-   public function show(Request $request){
+{  public function show(Request $request){
     $tweet = new MikeTweet ();
     $user=Auth::user(); // ログインしているidを取っている
     $tweet->user_id=$user->id;

@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Follow;
+use App\Like;
+
+
 
 class User extends Authenticatable
 {
@@ -12,10 +16,15 @@ class User extends Authenticatable
     public function like(){
         return $this->hasMany('App\like');
     }
+
+    public function follow(){
+        return $this->hasMany('App\follow',to_user_id);
+    }
+
     
         /**
      * The attributes that are mass assignable.
-     *
+     
      * @var array
      */
     protected $fillable =[   
