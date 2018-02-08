@@ -14,6 +14,9 @@
     <input type="submit" name="submit_value"    value="delete">
     <input type="hidden" name="message_id" value="{{$mike_tweet->id}}">
     
+  
+
+
   </form>
   @endforeach
 

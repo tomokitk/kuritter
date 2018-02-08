@@ -13,7 +13,8 @@
 
     <p>{{$user->name}}</p>
     <input type="hidden" name="id" value="{{$user->id}}">
-    <input type="submit" value="follow">
+    <input type="submit" name="follow_unfollow" value="follow">
+    <input type="submit" name="follow_unfollow" value="unfollow">
 </form>
 @endforeach
 
