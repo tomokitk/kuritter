@@ -17,15 +17,11 @@ class FollowController extends Controller
     }else if($request->follow_unfollow=="unfollow"){
         //dd($request->id);
         $user=Auth::user();
-        $break=follow::where('id',$user->id)->where('id',$request->id)->delete();
-        //$break=delete();
+        $break=Follow::where('from_user_id',$user->id)->where('to_user_id',$request->id);//->post();//->delete();
+        $break->delete();
     }
-    
-
     $users=User::all();
-
-
-    //dd($request->id);
+    //dd($user->id);
     return view('user_list')->with('users',$users);
     
  
