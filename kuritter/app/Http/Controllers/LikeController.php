@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Log;
 class LikeController extends Controller
 { 
     public function like(Request $request){
-        Log::info("likeメソッド　messageid:".$request->message_id);
+        //Log::info("likeメソッド　messageid:".$request->message_id);
         if($request->submit_value=="like"){
-            $like = new like();
+            $like = new Like();
             $user=Auth::user();
             $like->message_id=$request->message_id;
             $like->user_id=$user->id;
@@ -21,7 +21,12 @@ class LikeController extends Controller
         }else if($request->submit_value== "delete"){
             $break = MikeTweet::findOrFail($request->message_id);
             $break->delete();
+        }else if($request->submit_value=="unlike"){
+            $user=Auth::user();
+            $break = Like::where('user_id',$user->id)->where('message_id',$request->message_id);
+            $break->delete();
         }
+    
         $tweet=MikeTweet::all();
         return view('show')->with('mike_tweets',$tweet);
     }

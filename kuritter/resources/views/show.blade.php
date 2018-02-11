@@ -10,7 +10,8 @@
     <P>{{ old('message', $mike_tweet->message) }}</p>
     
     
-  　<input type="submit" name="submit_value"    value="like">
+  　<input type="submit" name="submit_value"    value="like"> 
+    <input type="submit" name="submit_value"    value="unlike">
     <input type="submit" name="submit_value"    value="delete">
     <input type="hidden" name="message_id" value="{{$mike_tweet->id}}">
     
