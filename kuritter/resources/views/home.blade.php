@@ -14,8 +14,19 @@
                         </div>
                     @endif
 
-                    You are logged in!    
+                    You are logged in! welcome in kuritter!!!!
+                    <div class="tweet">
+                     <a href="/tweet">tweet</a>
+                    </div>
 
+                    <div class="user_list">
+                    <a href="/user">use_list</a>
+                    </div>
+                    
+                    <div class="show">
+                    <a href="/show">time_line</a>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -23,17 +34,7 @@
 </div>
 @endsection
 
-@section('footer')
-<div class="tweet">
-    <a href="/tweet">tweet</a>
-</div>
 
-<div class="user_list">
-    <a href="/user">use_list</a>
-</div>
 
-<div class="like">
-    <a href="/like">like</a>
-</div>
 
 
