@@ -26,9 +26,10 @@ class LikeController extends Controller
             $break = Like::where('user_id',$user->id)->where('message_id',$request->message_id);
             $break->delete();
         }
-    
+        
+        $like=Like::all();
         $tweet=MikeTweet::all();
-        return view('show')->with('mike_tweets',$tweet);
+        return view('show')->with('mike_tweets',$tweet)->with('likes',$like);
     }
 }
 
