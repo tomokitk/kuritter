@@ -25,8 +25,8 @@
                     <div class="user_list">
                     <a href="/user">use_list</a>
                     </div>
-                    <div class="show">
-                    <a href="/show">time_line</a>
+                    <div class="timeline">
+                    <a href="/timeline">time_line</a>
 
                     </div>
                 </div>

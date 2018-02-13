@@ -14,12 +14,30 @@ class ShowController extends Controller
     $tweet->message=$request->message;
     $tweet-> save();
     $tweet=MikeTweet::all();
-    return view('/show')->with('mike_tweets',$tweet);
+    return view('show')->with('mike_tweets',$tweet);
  }
     
      
 
+    //public function timeline(Request $request){
+
+    //$tweet=MikeTweet::all();
+    //return view('show');
+
+
+
+//}
+
+
+
+
+
+
+
+
+
 }
+
 
 
 
