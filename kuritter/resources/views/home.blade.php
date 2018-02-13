@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+{{ csrf_field() }}
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -14,7 +15,9 @@
                         </div>
                     @endif
 
-                    You are logged in! welcome in kuritter!!!!
+                   
+                     You are logged in! welcome in kuritter!!!!
+                    
                     <div class="tweet">
                      <a href="/tweet">tweet</a>
                     </div>
@@ -22,7 +25,6 @@
                     <div class="user_list">
                     <a href="/user">use_list</a>
                     </div>
-                    
                     <div class="show">
                     <a href="/show">time_line</a>
 
