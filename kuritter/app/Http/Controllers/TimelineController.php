@@ -10,11 +10,9 @@ use Illuminate\Support\Facades\Auth;
 class TimelineController extends Controller
 {
     public function timeline(Request $request){
-        $user=Auth::user();
-        $like=Like::where('user_id',$user->id)->where('message_id',$request->message_id);
-        $like=Like::all();
+        
         $tweet=MikeTweet::all();
-        return view('show')->with('mike_tweets',$tweet)->with('likes',$like);
+        return view('show')->with('mike_tweets',$tweet);
 
 }
 

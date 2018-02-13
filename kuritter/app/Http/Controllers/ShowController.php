@@ -14,10 +14,9 @@ class ShowController extends Controller
     $tweet->user_id=$user->id;
     $tweet->message=$request->message;
     $tweet-> save();
-
     $tweet=MikeTweet::all();
-    $like=Like::all();
-    return view('show')->with('mike_tweets',$tweet)->with('likes',$like);
+    
+    return view('show')->with('mike_tweets',$tweet);
  }
     
      

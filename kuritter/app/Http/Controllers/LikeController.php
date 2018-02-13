@@ -27,9 +27,9 @@ class LikeController extends Controller
             $break->delete();
         }
         
-        $like=Like::all();
+        
         $tweet=MikeTweet::all();
-        return view('show')->with('mike_tweets',$tweet)->with('likes',$likes);
+        return view('show')->with('mike_tweets',$tweet);
     }
 }
 
