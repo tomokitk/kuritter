@@ -9,7 +9,7 @@
     {{ csrf_field() }}
     <P>{{ old('message', $mike_tweet->message) }}</p>
     
-    @if(count($like) === 1)
+    @if(count($like) === 0)
   　<input type="submit" name="submit_value"     value="like"> 
     @elseif(count($like) > 1)
     <input type="submit" name="submit_value"     value="unlike">
