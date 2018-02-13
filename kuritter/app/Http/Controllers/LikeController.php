@@ -29,7 +29,7 @@ class LikeController extends Controller
         
         $like=Like::all();
         $tweet=MikeTweet::all();
-        return view('show')->with('mike_tweets',$tweet)->with('likes',$like);
+        return view('show')->with('mike_tweets',$tweet)->with('likes',$likes);
     }
 }
 

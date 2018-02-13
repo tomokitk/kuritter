@@ -4,7 +4,7 @@
   </h1>
   
 
-  @foreach($mike_tweets,$likes) as [$mike_tweet,$like])
+  @foreach(array($mike_tweets,$likes) as [$mike_tweet,$like])
   <form method="post" action="{{ url('/like')}}">
     {{ csrf_field() }}
     <P>{{ old('message', $mike_tweet->message) }}</p>
