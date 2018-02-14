@@ -10,7 +10,10 @@ use App\User;
 
 class Like extends Model
 {
-    
+public function timeline(){
+    return $this->hasmany('App\MikeTweet');
+
+}    
 
 }
 

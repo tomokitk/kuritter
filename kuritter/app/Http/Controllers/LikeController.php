@@ -29,6 +29,7 @@ class LikeController extends Controller
         
         
         $tweet=MikeTweet::all();
+        //var_dump($tweet);
         return view('show')->with('mike_tweets',$tweet);
     }
 }

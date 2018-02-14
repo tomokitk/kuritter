@@ -21,6 +21,10 @@ class User extends Authenticatable
         return $this->hasMany('App\follow',to_user_id);
     }
 
+    //public function timeline(){
+      //  return $this->hasmany('App\MikeTweet');
+        
+   // }    
     
         /**
      * The attributes that are mass assignable.
