@@ -14,19 +14,41 @@
   
     <P>{{ old('message',$mike_tweet->message) }}</p>
     @foreach($likes as $like)
+    
+    <?php 
+    if(!empty($mike_tweet->like)){
+      foreach($mike_tweet->like as $likeData){
+        echo $likeData->user_id."/";
+
+      }
+      echo "\n";
+      if(isset($user)){
+        echo "ユーザーID".$user->id;
+        echo "\n";
+        if( $mike_tweet->isMyLike($user->id)){
+          echo "true";
+          echo "\n";
+        }
+      }
+    }
+
+    ?>
+    
+
      @if($mike_tweet->id==$like->message_id)
      <input type="submit" name="submit_value"     value="unlike">
      @else
     <input type="submit" name="submit_value"     value="like"> 
+     @break
      @endif
-     
+    @endforeach
     <input type="submit" name="submit_value"     value="delete">
     <input type="hidden" name="message_id"       value="{{$mike_tweet->id}}">
-     @break
+     
      
   </form>
      
-  @endforeach    
+     
   @endforeach
 
   

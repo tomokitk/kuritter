@@ -18,9 +18,7 @@ class ShowController extends Controller
     $likeAll=Like::all();
     
     return view('show')->with('mike_tweets',$tweet)->with('likes',$likeAll);
- }
-    
-     
+ }    
 }
     //public function timeline(Request $request){
 
