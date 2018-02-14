@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\MikeTweet; 
 use Illuminate\Support\Facades\Auth;
+use App\Like;
 
 class ShowController extends Controller
 {  public function show(Request $request){
@@ -14,12 +15,31 @@ class ShowController extends Controller
     $tweet->message=$request->message;
     $tweet-> save();
     $tweet=MikeTweet::all();
+    
     return view('show')->with('mike_tweets',$tweet);
  }
     
      
 
+    //public function timeline(Request $request){
+
+    //$tweet=MikeTweet::all();
+    //return view('show');
+
+
+
+//}
+
+
+
+
+
+
+
+
+
 }
+
 
 
 

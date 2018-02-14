@@ -14,6 +14,9 @@ class FollowController extends Controller
         $follow->from_user_id=$user->id;
         $follow->to_user_id=$request->id;
         $follow->save();
+   // }else if($request->follow_unfollow=="follow"){
+        //$user=Auth::user();
+        //$follow
     }else if($request->follow_unfollow=="unfollow"){
         //dd($request->id);
         $user=Auth::user();

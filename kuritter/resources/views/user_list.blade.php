@@ -5,7 +5,8 @@
     <title>User_List</title>
 </head>
 <body>
-<h1>User_List</h1>
+<a href="{{url('/home')}}"class ="header-menu">Back To Home</a>
+<h1>Users_list</h1>
 
 @foreach($users as $user)
 <form method="post" action="{{ url('/follow') }}">
