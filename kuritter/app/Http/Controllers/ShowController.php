@@ -15,12 +15,13 @@ class ShowController extends Controller
     $tweet->message=$request->message;
     $tweet-> save();
     $tweet=MikeTweet::all();
+    $likeAll=Like::all();
     
-    return view('show')->with('mike_tweets',$tweet);
+    return view('show')->with('mike_tweets',$tweet)->with('likes',$likeAll);
  }
     
      
-
+}
     //public function timeline(Request $request){
 
     //$tweet=MikeTweet::all();
@@ -38,20 +39,9 @@ class ShowController extends Controller
 
 
 
-}
+
 
 
 
 
   
-///tweetcontroller のstore メソッドと一緒のもんを書けばいい。
-
-////User::where("id","!=",$user->id)->get();
-
-////public function delete(Request $request) {
-    ////$break = MikeTweet::findOrFail($id);
-    ////$break->delete($id);
-    ///$breal->save();
-    ///$tweet=MikeTweet::all();
-    ///return view('show')->with('mike_tweets',$tweet);
-    ////}
