@@ -10,7 +10,7 @@ use App\User;
 
 class Like extends Model
 {
-    
+
 
 }
 
