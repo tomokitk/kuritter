@@ -16,17 +16,18 @@
     
     @if(!empty($mike_tweet->like))
      
-    @foreach($mike_tweet->like as $like)
-        $mylike = false;
-        @if()
-    @if($mike_tweet->id==$like->message_id)
-    <input type="submit" name="submit_value"     value="unlike">
-    @break
-  
-    
-     @endif
-    @endforeach
-
+    <?php $NotLike = false; ?>
+      @foreach($mike_tweet->like as $like)
+        @if($mike_tweet->id==$like->message_id)
+          <?php $NotLike = true; ?>
+          <input type="submit" name="submit_value"     value="unlike">
+          @break
+        @endif
+        
+      @endforeach
+      @if($NotLike==false)
+      <input type="submit" name="submit_value"     value="like">
+      @endif
     @else
     <input type="submit" name="submit_value"     value="like">
 
