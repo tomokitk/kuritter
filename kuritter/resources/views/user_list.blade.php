@@ -9,13 +9,15 @@
 <h1>Users_list</h1>
 
 @foreach($users as $user)
- 
+
 <form method="post" action="{{ url('/follow') }}">
 {{ csrf_field() }}
 
 <p>{{$user->name}}</p>   
 
-    @if($user->id&&$my_id->id)
+@if(!empty($user->follow))
+    @foreach($user->follow as $follow)
+        @if($user->id&&$follow->from_user_id)      
         <input type="submit" name="follow_unfollow" value="unfollow">
         
         @else
@@ -24,8 +26,10 @@
         
     @endif
     <input type="hidden" name="id" value="{{$user->id}}">
+    @endforeach
 </form>
  
+    
 @endforeach
 
 

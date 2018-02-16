@@ -19,6 +19,7 @@
     <?php $NotLike = false; ?>
       @foreach($mike_tweet->like as $like)
         @if($mike_tweet->id==$like->message_id)
+        
           <?php $NotLike = true; ?>
           <input type="submit" name="submit_value"     value="unlike">
           @break
