@@ -16,17 +16,23 @@
 <p>{{$user->name}}</p>   
 
 @if(!empty($user->follow))
+
+<?php $NotFollow = false; ?>
     @foreach($user->follow as $follow)
-        @if($user->id&&$follow->from_user_id)      
-        <input type="submit" name="follow_unfollow" value="unfollow">
-        
-        @else
-        <?php dd($user->id); ?>
-        <input type="submit" name="follow_unfollow" value="follow">
-        
-    @endif
-    <input type="hidden" name="id" value="{{$user->id}}">
+     @if($user->id==$follow->to_user_id)      
+
+        <?php $NotFollow = true; ?>
+       <input type="submit" name="follow_unfollow" value="unfollow">
+       @break
+     @endif
+
     @endforeach
+    @if($NotFollow==false)
+    <input type="submit" name="follow_unfollow" value="follow">
+    @endif
+        
+    <input type="hidden" name="id" value="{{$user->id}}">
+@endif   
 </form>
  
     
