@@ -18,12 +18,16 @@ class LikeController extends Controller
             $like->message_id=$request->message_id;
             $like->user_id=$user->id;
             $like->save();
-        }else if($request->submit_value== "delete"){
-            $break = MikeTweet::findOrFail($request->message_id);
-            $break->delete();
+        // }else if($request->submit_value== "delete"){
+        //     $break = MikeTweet::findOrFail($request->message_id);
+        //     $break->delete();
         }else if($request->submit_value=="unlike"){
             $user=Auth::user();
             $break = Like::where('user_id',$user->id)->where('message_id',$request->message_id);
+            $break->delete();
+
+         }else if($request->submit_value== "delete"){
+            $break = MikeTweet::findOrFail($request->message_id);
             $break->delete();
         }
         

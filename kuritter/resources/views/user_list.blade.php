@@ -9,14 +9,23 @@
 <h1>Users_list</h1>
 
 @foreach($users as $user)
+ 
 <form method="post" action="{{ url('/follow') }}">
 {{ csrf_field() }}
 
-    <p>{{$user->name}}</p>
+<p>{{$user->name}}</p>   
+
+    @if($user->id&&$my_id->id)
+        <input type="submit" name="follow_unfollow" value="unfollow">
+        
+        @else
+        <?php dd($user->id); ?>
+        <input type="submit" name="follow_unfollow" value="follow">
+        
+    @endif
     <input type="hidden" name="id" value="{{$user->id}}">
-    <input type="submit" name="follow_unfollow" value="follow">
-    <input type="submit" name="follow_unfollow" value="unfollow">
 </form>
+ 
 @endforeach
 
 

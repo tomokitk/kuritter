@@ -24,8 +24,9 @@ class FollowController extends Controller
         $break->delete();
     }
     $users=User::all();
+    $user=Auth::user();
     //dd($user->id);
-    return view('user_list')->with('users',$users);
+    return view('user_list')->with('users',$users)->with('my_id',$user);
     
  
 }   

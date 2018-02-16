@@ -6,16 +6,16 @@
   </h1>
   
   
-  @foreach($mike_tweets as $mike_tweet)
-    
-  
+  @foreach($mike_tweets as $mike_tweet)  
   <form method="post" action="{{ url('/like')}}">
     {{ csrf_field() }}
-  
+    
+
     <P>{{ old('message',$mike_tweet->message) }}</p>
     
+
     @if(!empty($mike_tweet->like))
-     
+    
     <?php $NotLike = false; ?>
       @foreach($mike_tweet->like as $like)
         @if($mike_tweet->id==$like->message_id)

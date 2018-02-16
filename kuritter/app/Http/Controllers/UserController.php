@@ -13,12 +13,9 @@ class UserController extends Controller
     public function user(Request $request){  
 
     $user=Auth::user();
-        
-        $users = User::where("id","!=",$user->id)->get();
-        $users = User::all();
-      
-        
-    return view('user_list')->with('users',$users);
+    $users = User::where("id","!=",$user->id)->get();
+    $users = User::all();
+    return view('user_list')->with('users',$users)->with('my_id',$user);
         
         
         
