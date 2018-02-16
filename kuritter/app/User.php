@@ -13,9 +13,9 @@ class User extends Authenticatable
 {
     use Notifiable;
     
-    // public function like(){
-    //     return $this->hasone('App\like');
-    // }
+     public function like(){
+         return $this->hasone('App\like');
+     }
 
     public function follow(){
         return $this->hasMany('App\follow','to_user_id');

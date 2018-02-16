@@ -15,7 +15,7 @@ class UserController extends Controller
     $user=Auth::user();
     $users = User::where("id","!=",$user->id)->get();
     $users = User::all();
-    $following = Follow::all();
+    $following = Follow::where('from_user_id',$request->from_user_id);
     return view('user_list')->with('users',$users)
                             ->with('my_id',$user)
                             ->with('following',$following);
