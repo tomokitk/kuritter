@@ -17,7 +17,7 @@ class TimelineController extends Controller
         return view('show')
                 ->with('mike_tweets',$tweet)
                 ->with('likes',$like)
-                ->with('user',$user);
+                ->with('my_id',$user);
         //dd($tweet);
 
 }
