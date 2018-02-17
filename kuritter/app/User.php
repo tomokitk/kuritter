@@ -20,9 +20,9 @@ class User extends Authenticatable
     public function follow(){
         return $this->hasMany('App\follow','to_user_id');
     }
-        //followテーブルからto_user_idを取得
+        //followテーブルからfrom_user_idを取得
     public function user(){
-        return $this->hasOne('App\follow','to_user_id');
+        return $this->hasOne('App\follow','from_user_id');
     }
     //public function timeline(){
       //  return $this->hasmany('App\MikeTweet');

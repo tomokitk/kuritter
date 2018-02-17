@@ -14,10 +14,8 @@ class TimelineController extends Controller
          $user = Auth::User();
          $tweet=MikeTweet::all();
         //  $tweet=$tweet->like->where('user_id','=',$user->id)->get();
-        return view('show')
-                ->with('mike_tweets',$tweet)
-                ->with('likes',$like)
-                ->with('my_id',$user);
+        return view('show')->with('mike_tweets',$tweet)
+                           ->with('my_id',$user);
         //dd($tweet);
 
 }

@@ -8,35 +8,31 @@
 <a href="{{url('/home')}}"class ="header-menu">Back To Home</a>
 <h1>Users_list</h1>
 
-    @foreach($users as $user)
+  @foreach($users as $user)
     <form method="post" action="{{ url('/follow') }}">
     {{ csrf_field() }}
 
-    <p>{{$user->name}}</p>   
-
+    <p>{{$user->name}}</p> 
+    
     @if(isset($user->follow))
-    <?php $NotFollow = false; ?>
-      @foreach($user->follow as $follow)
-        @if($my_id->id==$follow->to_user_id)      
+      <?php $NotFollow = false; ?>
+        @foreach($user->follow as $follow)
+            @if($my_id->id==$follow->from_user_id)  
 
-            <?php $NotFollow = true; ?>
-                <input type="submit" name="follow_unfollow" value="unfollow">
-        @break
-        @endif
-
-      <?php ///このあとから条件分岐の続きとcontllerに変更を加える。フォローのボタン表示切り替えを完成させる20180216?>
-
+             <?php $NotFollow = true; ?>
+             <input type="submit" name="follow_unfollow" value="unfollow">
+             @break
+            @endif
         @endforeach
         @if($NotFollow==false)
         <input type="submit" name="follow_unfollow" value="follow">
-        @endif
-            
+        @endif    
         <input type="hidden" name="id" value="{{$user->id}}">
     @endif   
     </form>
     
         
-    @endforeach
+   @endforeach
 
 
     </body>

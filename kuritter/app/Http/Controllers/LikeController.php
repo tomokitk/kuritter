@@ -26,7 +26,7 @@ class LikeController extends Controller
         }else if($request->submit_value=="unlike"){
             $user=Auth::user();
             $break = Like::where('user_id',$user->id)->where('message_id',$request->message_id);
-            Log::info("unlikeメソッド".$user->id.' '.$request->message_id);
+            //Log::info("unlikeメソッド".$user->id.' '.$request->message_id);
         
             $break->delete();
 

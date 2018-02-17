@@ -15,10 +15,11 @@ class UserController extends Controller
     $user=Auth::user();
     $users = User::where("id","!=",$user->id)->get();
     $users = User::all();
-    $following = Follow::where('from_user_id',$request->from_user_id);
+    $follow = Follow::all();
     return view('user_list')->with('users',$users)
                             ->with('my_id',$user)
-                            ->with('following',$following);
+                            ->with('follow',$follow);
+                            
         
         
         
