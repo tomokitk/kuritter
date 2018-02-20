@@ -12,15 +12,32 @@
 </h1>
 
 <h2>~my_tweet~</h2>
-@foreach($tweet as $tweet)
-    @if($tweet->user_id==$my_id->id)
-        <P>{{ old('message',$tweet->message) }}</p>
+@foreach($mike_tweets as $mike_tweet)
+
+
+    @if($mike_tweet->user_id==$my_id->id)
+        <P>{{ old('message',$mike_tweet->message) }}</p>
+        
         <!-- <form method="post" action="{{ url('/like')}}">
         {{ csrf_field() }} -->
-        <input type="submit" name="submit_value"     value="delete">
 
     @endif
+    
 @endforeach
+<?php //$make_retweets as $make_retweet はasの前を後に別の変数として代入して使っているから、同じではだめ ?>
+@foreach($make_retweets as $make_retweet)
+<p>{{$make_retweet->MikeTweet->message}}</p>
+ 
+@endforeach
+@foreach($tweet_arrays as $key =>$value)
+<?php echo "{$value['id']}"; ?>
+
+<?php echo "{$value['message']}"; ?>
+
+<?php echo "{$value['retweet_id']}"; ?>
+@endforeach
+
+
 
 </body>
 </html>

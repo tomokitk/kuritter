@@ -13,9 +13,12 @@ class MikeTweet extends Model
         return $this->hasMany('App\Like','message_id');
     }
 
-    public function retweet(){
-        return $this->hasMany('App\Retweet','message_id');
-    }
+    //リツイートからmessage_idを取得
+     public function retweet(){
+         return $this->hasMany('App\Retweet','message_id');
+     }
+
+  
 
 }
 

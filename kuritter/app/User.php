@@ -8,6 +8,8 @@ use App\Follow;
 use App\Like;
 use App\User;
 use App\MikeTweet;
+use App\Retweet;
+
 
 class User extends Authenticatable
 {
@@ -29,6 +31,9 @@ class User extends Authenticatable
         return $this->hasMany('App\MikeTweet','user_id');
     }
     
+    public function retweet(){
+        return $this->hasMany('App\Retweet','user_id');
+    }
     
     
     
