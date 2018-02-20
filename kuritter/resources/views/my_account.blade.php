@@ -7,26 +7,17 @@
 <body>
 <h1><a href="{{url('/home')}}"class ="header-menu">Back</a>
   My Account 
+  <p>アカウント名 :{{$my_id->name}}</p>
+
 </h1>
 
+<h2>~my_tweet~</h2>
 @foreach($tweet as $tweet)
 
     @if($tweet->user_id==$my_id->id)
         <P>{{ old('message',$tweet->message) }}</p>
     @endif
 @endforeach
-
-<p>
-      
-
-
-
-
-
-
-
-</p>
-
 
 </body>
 </html>
