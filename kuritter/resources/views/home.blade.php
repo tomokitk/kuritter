@@ -27,7 +27,8 @@
                     </div>
                     <div class="timeline">
                     <a href="/timeline">time_line</a>
-
+                    <div class="my_account">
+                    <a href="/my_account">my_account</a>
                     </div>
                 </div>
             </div>

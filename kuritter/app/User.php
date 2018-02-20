@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Follow;
 use App\Like;
 use App\User;
-
+use App\MikeTweet;
 
 class User extends Authenticatable
 {
@@ -24,7 +24,10 @@ class User extends Authenticatable
     public function user(){
         return $this->hasOne('App\follow','from_user_id');
     }
-    //public function timeline(){
+
+    public function my_account(){
+        return $this->hasMany('App\MikeTweet','user_id');
+    }    //public function timeline(){
       //  return $this->hasmany('App\MikeTweet');
         
    // }    
