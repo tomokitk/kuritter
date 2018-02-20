@@ -32,7 +32,10 @@
     <!-- like2-->
     @endif
 
+    <input type="submit" name="submit_value"     value="retweet">
+    @if($my_id->id==$mike_tweet->user_id)
     <input type="submit" name="submit_value"     value="delete">
+    @endif
     <input type="hidden" name="message_id"       value="{{$mike_tweet->id}}">     
   </form>
   @endforeach
