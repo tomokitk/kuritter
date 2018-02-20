@@ -14,9 +14,7 @@ class FollowController extends Controller
         $follow->from_user_id=$user->id;
         $follow->to_user_id=$request->id;
         $follow->save();
-   // }else if($request->follow_unfollow=="follow"){
-        //$user=Auth::user();
-        //$follow
+   
     }else if($request->follow_unfollow=="unfollow"){
         //dd($request->id);
         $user=Auth::user();
@@ -24,8 +22,13 @@ class FollowController extends Controller
         $break->delete();
     }
     $users=User::all();
-    //dd($user->id);
-    return view('user_list')->with('users',$users);
+    $user=Auth::user();
+    $follow=Follow::all();
+
+    return view('user_list')->with('users',$users)
+                            ->with('my_id',$user)
+                            ->with('follow',$follow);
+                            
     
  
 }   

@@ -8,17 +8,32 @@
 <a href="{{url('/home')}}"class ="header-menu">Back To Home</a>
 <h1>Users_list</h1>
 
-@foreach($users as $user)
-<form method="post" action="{{ url('/follow') }}">
-{{ csrf_field() }}
+  @foreach($users as $user)
+    <form method="post" action="{{ url('/follow') }}">
+    {{ csrf_field() }}
 
-    <p>{{$user->name}}</p>
-    <input type="hidden" name="id" value="{{$user->id}}">
-    <input type="submit" name="follow_unfollow" value="follow">
-    <input type="submit" name="follow_unfollow" value="unfollow">
-</form>
-@endforeach
+    <p>{{$user->name}}</p> 
+    
+    @if(isset($user->follow))
+      <?php $NotFollow = false; ?>
+        @foreach($user->follow as $follow)
+            @if($my_id->id==$follow->from_user_id)  
+
+             <?php $NotFollow = true; ?>
+             <input type="submit" name="follow_unfollow" value="unfollow">
+             @break
+            @endif
+        @endforeach
+        @if($NotFollow==false)
+        <input type="submit" name="follow_unfollow" value="follow">
+        @endif    
+        <input type="hidden" name="id" value="{{$user->id}}">
+    @endif   
+    </form>
+    
+        
+   @endforeach
 
 
-</body>
-</html>
+    </body>
+    </html>

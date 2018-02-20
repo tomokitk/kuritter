@@ -12,25 +12,36 @@ class LikeController extends Controller
 { 
     public function like(Request $request){
         //Log::info("likeメソッド　messageid:".$request->message_id);
+        $user=Auth::user();
         if($request->submit_value=="like"){
             $like = new Like();
-            $user=Auth::user();
+            
             $like->message_id=$request->message_id;
             $like->user_id=$user->id;
+            //Log::info("likeメソッド".$user->id.' '.$like->message_id);
             $like->save();
-        }else if($request->submit_value== "delete"){
-            $break = MikeTweet::findOrFail($request->message_id);
-            $break->delete();
+        // }else if($request->submit_value== "delete"){
+        //     $break = MikeTweet::findOrFail($request->message_id);
+        //     $break->delete();
         }else if($request->submit_value=="unlike"){
             $user=Auth::user();
             $break = Like::where('user_id',$user->id)->where('message_id',$request->message_id);
+            //Log::info("unlikeメソッド".$user->id.' '.$request->message_id);
+        
+            $break->delete();
+
+         }else if($request->submit_value== "delete"){
+            $break = MikeTweet::findOrFail($request->message_id);
             $break->delete();
         }
         
         $likeAll=Like::all();
         $tweet=MikeTweet::all();
+
         //var_dump($tweet);
-        return view('show')->with('mike_tweets',$tweet)->with('likes',$likeAll);
+        return view('show')->with('mike_tweets',$tweet)
+                           ->with('my_id',$user);
+                           
     }
 }
 

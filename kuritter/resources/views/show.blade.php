@@ -6,39 +6,35 @@
   </h1>
   
   
-  @foreach($mike_tweets as $mike_tweet)
-    
-  
+  @foreach($mike_tweets as $mike_tweet)  
   <form method="post" action="{{ url('/like')}}">
     {{ csrf_field() }}
-  
+
     <P>{{ old('message',$mike_tweet->message) }}</p>
-    
-    @if(!empty($mike_tweet->like))
-     
-    <?php $NotLike = false; ?>
+  
+    @if(isset($mike_tweet->like))
+      <?php $NotLike = false; ?>
       @foreach($mike_tweet->like as $like)
-        @if($mike_tweet->id==$like->message_id)
-          <?php $NotLike = true; ?>
+        @if($my_id->id==$like->user_id)
+
+        <?php $NotLike = true; ?>
           <input type="submit" name="submit_value"     value="unlike">
+          <!-- unlike-->
           @break
         @endif
-        
       @endforeach
       @if($NotLike==false)
       <input type="submit" name="submit_value"     value="like">
+      <!-- like1-->
       @endif
     @else
     <input type="submit" name="submit_value"     value="like">
-
+    <!-- like2-->
     @endif
+
     <input type="submit" name="submit_value"     value="delete">
-    <input type="hidden" name="message_id"       value="{{$mike_tweet->id}}">
-     
-     
+    <input type="hidden" name="message_id"       value="{{$mike_tweet->id}}">     
   </form>
-     
-     
   @endforeach
 
 
