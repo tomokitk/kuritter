@@ -15,8 +15,8 @@
 @foreach($tweet as $tweet)
     @if($tweet->user_id==$my_id->id)
         <P>{{ old('message',$tweet->message) }}</p>
-        <form method="post" action="{{ url('/like')}}">
-        {{ csrf_field() }}
+        <!-- <form method="post" action="{{ url('/like')}}">
+        {{ csrf_field() }} -->
         <input type="submit" name="submit_value"     value="delete">
 
     @endif
@@ -24,6 +24,3 @@
 
 </body>
 </html>
-
-
-

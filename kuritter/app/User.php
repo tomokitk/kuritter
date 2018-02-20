@@ -27,7 +27,15 @@ class User extends Authenticatable
 
     public function my_account(){
         return $this->hasMany('App\MikeTweet','user_id');
-    }    //public function timeline(){
+    }
+    
+    
+    
+    
+    
+    
+    
+    //public function timeline(){
       //  return $this->hasmany('App\MikeTweet');
         
    // }    
