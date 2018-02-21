@@ -17,12 +17,18 @@ class My_accoutController extends Controller
 
         // $tweet_array[]=array('id'=>'りんご', 'message'=>'もも', 'retweet_id'=>'なし');
         // $tweet_array[]=array('id'=>'りんご2', 'message'=>'もも2', 'retweet_id'=>'なし2');
-        foreach($tweet as $child ){
-            $tweet_array[]=array('id'=>$child->id, 'message'=>$child->message, 'retweet_id'=>'0');
+        foreach($tweet as $my_tweet ){
+            $tweet_array[]=array('id'=>$my_tweet->id, 'message'=>$my_tweet->message, 'created_at'=>$my_tweet->created_at, 'retweet_id'=>' 0');
         }
         foreach($make_retweet as $retweet){
-            $tweet_array[]=array('id'=>$retweet->id,'message'=>$retweet->message,'retweet_id'=>'1');
+            $tweet_array[]=array('id'=>$retweet->id, 'message'=>$retweet->MikeTweet->message, 'created_at'=>$retweet->created_at, 'retweet_id'=>' 1');
         }
+        foreach($tweet_array as $key => $value) {
+            $sort[$key] = $value['created_at'];
+            
+        }
+        array_multisort($sort, SORT_ASC, $tweet_array);
+
         return view('my_account')->with('my_id',$user)
                                  ->with('mike_tweets',$tweet)
                                  ->with('make_retweets',$make_retweet)
