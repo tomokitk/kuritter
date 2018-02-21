@@ -14,7 +14,8 @@ class My_accoutController extends Controller
         $tweet=MikeTweet::where('user_id',$user->id)->get();
         // $tweet=MikeTweet::all();
         $make_retweet=Retweet::where('user_id',$user->id)->get();
-
+        $tweet_array[]=null;
+        $array_multisort[]=null;
         // $tweet_array[]=array('id'=>'りんご', 'message'=>'もも', 'retweet_id'=>'なし');
         // $tweet_array[]=array('id'=>'りんご2', 'message'=>'もも2', 'retweet_id'=>'なし2');
 
@@ -22,14 +23,17 @@ class My_accoutController extends Controller
             $tweet_array[]=array('id'=>$my_tweet->id, 'message'=>$my_tweet->message, 'created_at'=>$my_tweet->created_at, 'retweet_id'=>' ');
         }
         foreach($make_retweet as $retweet){
+            //dd($retweet->MikeTweet);
             $tweet_array[]=array('id'=>$retweet->id, 'message'=>$retweet->MikeTweet->message, 'created_at'=>$retweet->created_at, 'retweet_id'=>' ☆retweet!!!☆');
         }
-        foreach($tweet_array as $key => $value) {
+        foreach($tweet_array as $key => $value){
+            if(isset($value['created_at'])){
             $sort[$key] = $value['created_at'];
-            
+            }
         }
+            if(!empty($sort)){
         array_multisort($sort, SORT_ASC, $tweet_array);
-
+            }
         return view('my_account')->with('my_id',$user)
                                  ->with('mike_tweets',$tweet)
                                  ->with('make_retweets',$make_retweet)

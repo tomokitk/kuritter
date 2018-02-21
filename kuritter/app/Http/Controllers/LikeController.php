@@ -33,6 +33,8 @@ class LikeController extends Controller
          }else if($request->submit_value== "delete"){
             $break = MikeTweet::findOrFail($request->message_id);
             $break->delete();
+            if()
+
         }
         
         $likeAll=Like::all();

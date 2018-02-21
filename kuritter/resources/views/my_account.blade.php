@@ -13,20 +13,22 @@
 
 <h2>~my_tweet~</h2>
 
-@foreach($tweet_arrays as $key =>$value)
-<ul>
-    <li>
-        <?php //echo "{$value['id']}"; ?>
 
-        <?php echo "{$value['message']}"; ?>
+    @foreach($tweet_arrays as $key =>$value)
 
-        <?php //echo "{$value['created_at']}"; ?>
+    <ul>
+        <li>
+            <?php //echo "{$value['id']}"; ?>
 
-        <?php echo "{$value['retweet_id']}"; ?>
-    </li>
-</ul>
+            <?php echo "{$value['message']}"; ?>
 
-@endforeach
+            <?php //echo "{$value['created_at']}"; ?>
+
+            <?php echo "{$value['retweet_id']}"; ?>
+        </li>
+    </ul>
+
+    @endforeach
 
 
 

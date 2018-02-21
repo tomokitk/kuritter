@@ -18,6 +18,12 @@ class CreateMikeTweetsTable extends Migration
             $table->integer('user_id');
             $table->text('message');           
             $table->timestamps();
+
+            // $table->foreign('user_id')
+            //       ->references('id')
+            //       ->on('users')
+            //       ->onDelete('cascade');
+
         });
     }
 

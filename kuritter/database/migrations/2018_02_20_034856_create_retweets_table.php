@@ -18,6 +18,12 @@ class CreateRetweetsTable extends Migration
             $table->integer('user_id');
             $table->integer('message_id');
             $table->timestamps();
+
+            // $table->foreign('message_id')
+            //             ->references('id')
+            //             ->on('mike_tweets')
+            //             ->onDelete('cascade');
+
         });
     }
 
