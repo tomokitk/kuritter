@@ -14,8 +14,8 @@ class My_accoutController extends Controller
         $tweet=MikeTweet::where('user_id',$user->id)->get();
         // $tweet=MikeTweet::all();
         $make_retweet=Retweet::where('user_id',$user->id)->get();
-        $tweet_array[]=null;
-        $array_multisort[]=null;
+        $tweet_array = [];
+        $array_multisort=[];
         // $tweet_array[]=array('id'=>'りんご', 'message'=>'もも', 'retweet_id'=>'なし');
         // $tweet_array[]=array('id'=>'りんご2', 'message'=>'もも2', 'retweet_id'=>'なし2');
 
@@ -28,10 +28,13 @@ class My_accoutController extends Controller
         }
         foreach($tweet_array as $key => $value){
             if(isset($value['created_at'])){
-            $sort[$key] = $value['created_at'];
+                $sort[$key] = $value['created_at'];
             }
         }
             if(!empty($sort)){
+                // logger($sort);
+                // logger($tweet_array);
+
         array_multisort($sort, SORT_ASC, $tweet_array);
             }
         return view('my_account')->with('my_id',$user)
