@@ -13,10 +13,11 @@ class My_accoutController extends Controller
         $user=Auth::User();
         $tweet=MikeTweet::where('user_id',$user->id)->get();
         // $tweet=MikeTweet::all();
-        $make_retweet=Retweet::all();
+        $make_retweet=Retweet::where('user_id',$user->id)->get();
 
         // $tweet_array[]=array('id'=>'りんご', 'message'=>'もも', 'retweet_id'=>'なし');
         // $tweet_array[]=array('id'=>'りんご2', 'message'=>'もも2', 'retweet_id'=>'なし2');
+
         foreach($tweet as $my_tweet ){
             $tweet_array[]=array('id'=>$my_tweet->id, 'message'=>$my_tweet->message, 'created_at'=>$my_tweet->created_at, 'retweet_id'=>' 0');
         }
