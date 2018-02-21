@@ -31,4 +31,4 @@ Route::delete('/delete','DeleteController@delete');
 Route::post('/follow','FollowController@follow');
 Route::get('/timeline','TimelineController@timeline');
 Route::get('/my_account','My_accoutController@my_account');
-Route::get('/retweet','RetweetController@retweet');
+Route::post('/retweet','RetweetController@retweet');

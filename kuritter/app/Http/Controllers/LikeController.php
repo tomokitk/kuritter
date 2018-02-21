@@ -7,6 +7,7 @@ use App\MikeTweet;
 use App\Like;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use App\Retweet;
 
 class LikeController extends Controller
 { 
@@ -33,6 +34,11 @@ class LikeController extends Controller
          }else if($request->submit_value== "delete"){
             $break = MikeTweet::findOrFail($request->message_id);
             $break->delete();
+            // $break = Retweet::findOrFail($request->message_id);
+            // $break->delete();
+
+            
+
         }
         
         $likeAll=Like::all();

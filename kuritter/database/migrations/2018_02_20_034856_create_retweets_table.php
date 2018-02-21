@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMikeTweetsTable extends Migration
+class CreateRetweetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateMikeTweetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mike_tweets', function (Blueprint $table) {
+        Schema::create('retweets', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->text('message');           
+            $table->integer('message_id');
             $table->timestamps();
 
-            // $table->foreign('user_id')
-            //       ->references('id')
-            //       ->on('users')
-            //       ->onDelete('cascade');
+            // $table->foreign('message_id')
+            //             ->references('id')
+            //             ->on('mike_tweets')
+            //             ->onDelete('cascade');
 
         });
     }
@@ -34,6 +34,6 @@ class CreateMikeTweetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mike_tweets');
+        Schema::dropIfExists('retweets');
     }
 }

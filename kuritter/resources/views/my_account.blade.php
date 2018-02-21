@@ -12,15 +12,25 @@
 </h1>
 
 <h2>~my_tweet~</h2>
-@foreach($tweet as $tweet)
 
-    @if($tweet->user_id==$my_id->id)
-        <P>{{ old('message',$tweet->message) }}</p>
-    @endif
-@endforeach
+
+    @foreach($tweet_arrays as $key =>$value)
+
+    <ul>
+        <li>
+            <?php //echo "{$value['id']}"; ?>
+
+            <?php echo "{$value['message']}"; ?>
+
+            <?php //echo "{$value['created_at']}"; ?>
+
+            <?php echo "{$value['retweet_id']}"; ?>
+        </li>
+    </ul>
+
+    @endforeach
+
+
 
 </body>
 </html>
-
-
-
